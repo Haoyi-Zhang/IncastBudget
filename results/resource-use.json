@@ -1,0 +1,33 @@
+{
+  "execution": "two serial resumable parts",
+  "parent_cpu_seconds": 0.5410938829999998,
+  "child_cpu_seconds": 49.92309,
+  "wall_seconds": 41.53236972900004,
+  "parent_peak_rss_kib": 99672,
+  "largest_child_peak_rss_kib": 121388,
+  "workers": 1,
+  "scientific_results_match": true,
+  "wall_scope": "sum of active parts; excludes time between invocations",
+  "parts": [
+    {
+      "part": "first",
+      "parent_cpu_seconds": 0.1812006799999999,
+      "child_cpu_seconds": 25.732653999999997,
+      "wall_seconds": 21.451124846999846,
+      "parent_peak_rss_kib": 99672,
+      "largest_child_peak_rss_kib": 99756,
+      "workers": 1,
+      "scientific_results_match": true
+    },
+    {
+      "part": "second",
+      "parent_cpu_seconds": 0.35989320299999994,
+      "child_cpu_seconds": 24.190436000000002,
+      "wall_seconds": 20.081244882000192,
+      "parent_peak_rss_kib": 98864,
+      "largest_child_peak_rss_kib": 121388,
+      "workers": 1,
+      "scientific_results_match": true
+    }
+  ]
+}

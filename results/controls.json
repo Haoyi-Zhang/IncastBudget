@@ -1,0 +1,81 @@
+{
+  "corner_family": [
+    {
+      "bursts": 2,
+      "corners": 4,
+      "corner_peak": "1",
+      "exact_peak": "2"
+    },
+    {
+      "bursts": 3,
+      "corners": 8,
+      "corner_peak": "1",
+      "exact_peak": "3"
+    },
+    {
+      "bursts": 4,
+      "corners": 16,
+      "corner_peak": "1",
+      "exact_peak": "4"
+    },
+    {
+      "bursts": 5,
+      "corners": 32,
+      "corner_peak": "1",
+      "exact_peak": "5"
+    },
+    {
+      "bursts": 6,
+      "corners": 64,
+      "corner_peak": "1",
+      "exact_peak": "6"
+    },
+    {
+      "bursts": 7,
+      "corners": 128,
+      "corner_peak": "1",
+      "exact_peak": "7"
+    },
+    {
+      "bursts": 8,
+      "corners": 256,
+      "corner_peak": "1",
+      "exact_peak": "8"
+    },
+    {
+      "bursts": 9,
+      "corners": 512,
+      "corner_peak": "1",
+      "exact_peak": "9"
+    },
+    {
+      "bursts": 10,
+      "corners": 1024,
+      "corner_peak": "1",
+      "exact_peak": "10"
+    }
+  ],
+  "correlation": {
+    "phase_peak": "1",
+    "rectangle_peak": "6"
+  },
+  "calendar": {
+    "fluid_peak": "1",
+    "clustered_peak": 2,
+    "interleaved_peak": 1
+  },
+  "pooling": {
+    "private_sum": "6",
+    "pool": "1"
+  },
+  "scheduler": {
+    "fixed_reservation": "3",
+    "work_conserving_aggregate": "2"
+  },
+  "measurement": {
+    "cpu_seconds": 0.14919650799999995,
+    "wall_seconds": 0.1513740959999268,
+    "peak_rss_kib": 94508,
+    "workers": 1
+  }
+}

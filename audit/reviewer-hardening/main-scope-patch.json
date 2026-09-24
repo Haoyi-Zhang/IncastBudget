@@ -1,0 +1,6 @@
+{
+  "main": "/mnt/data/reviewer_redteam_work/project/paper/main.tex",
+  "changed": true,
+  "kept": false,
+  "reason": "reverted: Command '['sh', 'build.sh']' returned non-zero exit status 1."
+}

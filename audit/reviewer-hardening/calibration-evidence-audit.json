@@ -1,0 +1,457 @@
+{
+  "candidate_files": [
+    "research-plan.md",
+    "CLAIM-EVIDENCE-MATRIX.md",
+    "CURRENT-STATE.md",
+    "artifact/CLAIM-EVIDENCE-MATRIX.md",
+    "artifact/claim_evidence_ledger.csv",
+    "artifact/literature.md",
+    "artifact/proofs/correlated-phases.md",
+    "artifact/audit/reviewer-hardening/references-gate.json"
+  ],
+  "records": [
+    {
+      "key": "aalo",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "abm",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "baraat",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "bfc",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "coflow",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [
+        {
+          "file": "research-plan.md",
+          "context_characters": 1706,
+          "substantive": true
+        },
+        {
+          "file": "artifact/literature.md",
+          "context_characters": 1706,
+          "substantive": true
+        },
+        {
+          "file": "artifact/literature.md",
+          "context_characters": 1706,
+          "substantive": true
+        }
+      ],
+      "documented": true
+    },
+    {
+      "key": "coflowgeneral",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "conga",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "credence",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "d2tcp",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "d3",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "dcqcn",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "dctcp",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "expresspass",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "faircoflow",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "fastpass",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "hermes",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "homa",
+      "categories": [
+        "systems/network"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "hpcc",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "hull",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [
+        {
+          "file": "research-plan.md",
+          "context_characters": 1704,
+          "substantive": true
+        },
+        {
+          "file": "CURRENT-STATE.md",
+          "context_characters": 1704,
+          "substantive": true
+        },
+        {
+          "file": "artifact/claim_evidence_ledger.csv",
+          "context_characters": 1704,
+          "substantive": true
+        }
+      ],
+      "documented": true
+    },
+    {
+      "key": "letflow",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "luopan",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "mars",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "moe",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "ndp",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "nearoptcoflow",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "netcal",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "occamy",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "parekh1",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "parekh2",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "paydebt",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "pdq",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "pfabric",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "phost",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "pias",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "powertcp",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "ppfc",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "presto",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "reverie",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "sincronia",
+      "categories": [
+        "systems/network"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "sird",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "stochasticcoflow",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "swift",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "tab",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "timely",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "top",
+      "categories": [
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    },
+    {
+      "key": "varys",
+      "categories": [
+        "systems/network",
+        "topically-adjacent"
+      ],
+      "hits": [],
+      "documented": false
+    }
+  ],
+  "documented_unique": 2,
+  "documented_tpds": 0,
+  "documented_systems_network": 2,
+  "documented_topically_adjacent": 2,
+  "gates": {
+    "at_least_22_documented_unique": false,
+    "at_least_12_documented_tpds": false,
+    "at_least_5_documented_systems_network": false,
+    "at_least_5_documented_topically_adjacent": false
+  },
+  "all_gates_pass": false,
+  "interpretation": "Confirms that the package contains substantive per-paper calibration notes keyed to cited records. It does not convert those notes into independent peer review or guarantee novelty."
+}

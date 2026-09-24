@@ -1,0 +1,464 @@
+{
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "implementation": "CPython",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "tools": {
+      "pdflatex": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+      "qpdf": "unavailable: [Errno 2] No such file or directory: 'qpdf'",
+      "pdfinfo": "pdfinfo version 25.06.0",
+      "git": "git version 2.47.3"
+    },
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "coverage": "7.13.3",
+      "pytest": "9.0.2",
+      "Pillow": "12.3.0"
+    }
+  },
+  "artifacts": {
+    "project-artifact": {
+      "root": "/mnt/data/reviewer_redteam_work/project/artifact",
+      "python_files": 24,
+      "python_loc": 2225,
+      "imports": [
+        "__future__",
+        "affine_minimax",
+        "allocation",
+        "argparse",
+        "collections",
+        "copy",
+        "csv",
+        "dataclasses",
+        "exact",
+        "finite_domain_ve",
+        "fractions",
+        "heapq",
+        "itertools",
+        "json",
+        "linear_exact",
+        "numpy",
+        "oracle",
+        "os",
+        "pathlib",
+        "phase_dp",
+        "phases",
+        "platform",
+        "queue_certificate",
+        "queues",
+        "random",
+        "resource",
+        "reviewer_hardening",
+        "scipy",
+        "subprocess",
+        "sys",
+        "tempfile",
+        "time",
+        "typing",
+        "unittest"
+      ],
+      "test_methods": [
+        "tests/test_models.py::test_empty",
+        "tests/test_models.py::test_zero_service_ties",
+        "tests/test_models.py::test_heap_staleness",
+        "tests/test_models.py::test_large_calendar_horizon",
+        "tests/test_models.py::test_exact_numerics",
+        "tests/test_models.py::test_invalid_bursts",
+        "tests/test_models.py::test_invalid_calendar_and_release",
+        "tests/test_models.py::test_witness_vector",
+        "tests/test_models.py::test_enumeration_guard",
+        "tests/test_models.py::test_private_caps",
+        "tests/test_models.py::test_boundary_rates",
+        "tests/test_models.py::test_certificate_mutations",
+        "tests/test_models.py::test_json_input_rejection",
+        "tests/test_models.py::test_graph_construction",
+        "tests/test_models.py::test_phase_input_rejection",
+        "tests/test_models.py::test_phase_treewidth_elimination",
+        "tests/test_models.py::test_phase_dp_generic_and_rejection",
+        "tests/test_models.py::test_permutation_invariance",
+        "tests/test_reviewer_hardening.py::test_three_tenant_fractional_certificate",
+        "tests/test_reviewer_hardening.py::test_degenerate_duplicate_pieces",
+        "tests/test_reviewer_hardening.py::test_infeasible_capacity_rejected",
+        "tests/test_reviewer_hardening.py::test_mutated_certificates_rejected",
+        "tests/test_reviewer_hardening.py::test_random_exact_kkt_and_dense_grid_lower_bound",
+        "tests/test_reviewer_hardening.py::test_binary_and_ternary_domains_against_bruteforce",
+        "tests/test_reviewer_hardening.py::test_maxcut_special_case",
+        "tests/test_reviewer_hardening.py::test_bad_witness_rejected",
+        "tests/test_reviewer_hardening_adversarial.py::test_large_denominators_remain_exact",
+        "tests/test_reviewer_hardening_adversarial.py::test_boundary_only_optimum",
+        "tests/test_reviewer_hardening_adversarial.py::test_wrong_bound_multiplier_rejected",
+        "tests/test_reviewer_hardening_adversarial.py::test_disconnected_and_isolated_phase_variables",
+        "tests/test_reviewer_hardening_adversarial.py::test_incomplete_factor_table_rejected",
+        "tests/test_reviewer_hardening_adversarial.py::test_order_validation",
+        "tests/test_reviewer_hardening_adversarial.py::test_negative_factor_scores"
+      ],
+      "test_method_count": 33,
+      "entrypoints": [
+        "reproduce.py",
+        "reproduce_review.py",
+        "reproduce_review_all.py"
+      ],
+      "findings": {
+        "syntax_errors": [],
+        "dangerous_calls": [],
+        "shell_true": [],
+        "network_imports": [],
+        "absolute_paths": [],
+        "placeholders": [],
+        "random_without_literal_seed": []
+      },
+      "invalid_json": [],
+      "nonfinite_json_paths": [],
+      "source_manifest": [
+        {
+          "path": "export_results.py",
+          "bytes": 2704,
+          "sha256": "eda1b8b3bc8b259cea447ef220f7b92d1394b84e0d22d2b32df33860de872318"
+        },
+        {
+          "path": "reproduce.py",
+          "bytes": 6266,
+          "sha256": "e5ba022123be6dba2f77e19c8e2cec8230b8915ffa93ac0d52aa3b732cd30182"
+        },
+        {
+          "path": "reproduce_review.py",
+          "bytes": 696,
+          "sha256": "69beba9f949b99ad990c4b57fac5d18a56a9082d28f90cea0160935758f419bf"
+        },
+        {
+          "path": "reproduce_review_all.py",
+          "bytes": 75,
+          "sha256": "1d6cc5c35d0af2a93099d53abfd0e855bd527e04b293fd4bd6e2dcd24e95a548"
+        },
+        {
+          "path": "reviewer_hardening/__init__.py",
+          "bytes": 702,
+          "sha256": "305e4d1593057935f6c0c2c21996914ba0768a733f556b663a5bba65e23ba312"
+        },
+        {
+          "path": "reviewer_hardening/affine_minimax.py",
+          "bytes": 9445,
+          "sha256": "b10228b9ca0b15fd4e7997852143b1c8db9220b5eda5e5047a52d054f6fb2e40"
+        },
+        {
+          "path": "reviewer_hardening/external_oracle_validation.py",
+          "bytes": 2092,
+          "sha256": "f187d210ed02222300c6613b18c08ab84e1c2b88ce0955f617f0c770e8a21856"
+        },
+        {
+          "path": "reviewer_hardening/finite_domain_ve.py",
+          "bytes": 4659,
+          "sha256": "b977f49d7d99f6a22ba5162cf11fd80efad1f0465f6f49f75db0fe35d2536365"
+        },
+        {
+          "path": "reviewer_hardening/linear_exact.py",
+          "bytes": 2091,
+          "sha256": "8b5e54c636a459e89fe98514b1efc1b63ed43a38e01c5c2f2d64de7af37ddd30"
+        },
+        {
+          "path": "reviewer_hardening/metamorphic_validation.py",
+          "bytes": 4696,
+          "sha256": "e50d953df19f4de5496ae69847f0ae7996b85ac99134cbee16288a5500a6361c"
+        },
+        {
+          "path": "reviewer_hardening/run_all.py",
+          "bytes": 1298,
+          "sha256": "d0a998a52bba5d174e077facecfd383030de85c5eef805a53ee0b2749542708f"
+        },
+        {
+          "path": "reviewer_hardening/run_validation.py",
+          "bytes": 7760,
+          "sha256": "248a291e5cc16a6f84b137eed01c89ba623fde40409dabff74302fefb5e2dea9"
+        },
+        {
+          "path": "src/allocation.py",
+          "bytes": 8967,
+          "sha256": "371ad4136a6a12ea8f493a7627ac19836be1ec077b87950acb82a7f4eab54d43"
+        },
+        {
+          "path": "src/exact.py",
+          "bytes": 529,
+          "sha256": "9d49d7868999ff583910cfc5616a3a284f3ff99d1879ff220b60687c7e216760"
+        },
+        {
+          "path": "src/oracle.py",
+          "bytes": 3413,
+          "sha256": "6cda02a1e247f7c8402473c52653726d6ca50444a400a74f01d3c5c6d7f90c4f"
+        },
+        {
+          "path": "src/phase_dp.py",
+          "bytes": 10292,
+          "sha256": "f0c757043c99e6dba3ae314a23d685fc1c545c43dbd7c1a426d5a6ead4266c54"
+        },
+        {
+          "path": "src/phases.py",
+          "bytes": 2423,
+          "sha256": "553dab42d4b7c6e7e923ad0c6d11cea15aec988926a08ea6bf0482a47ade0ee5"
+        },
+        {
+          "path": "src/queue_certificate.py",
+          "bytes": 3095,
+          "sha256": "0f780c6f7e8d0bf530df295aebc2bc9405f64cb81f4ce16622b025260f142729"
+        },
+        {
+          "path": "src/queues.py",
+          "bytes": 8159,
+          "sha256": "e26903c9730f2b4a0b30e3be3f163e63931825979491b0585bd96360b7409709"
+        },
+        {
+          "path": "src/validate_cases.py",
+          "bytes": 9985,
+          "sha256": "2a8662b856e8a5db020cad47ac3a70f81138ea8c6024344d734884f58dd886ee"
+        },
+        {
+          "path": "tests/run.py",
+          "bytes": 1050,
+          "sha256": "d010d554a49a3fc600e1324f1472653dc709a07d5ccca60667ff22b7662edac3"
+        },
+        {
+          "path": "tests/test_models.py",
+          "bytes": 8809,
+          "sha256": "2a012143ea84c69c50a2de9110e766570a3c176451d8634cedd54e254a64d36e"
+        },
+        {
+          "path": "tests/test_reviewer_hardening.py",
+          "bytes": 5471,
+          "sha256": "63d7fa38b0627fa9f18a791aab9b785310daad317745ad491b376590b0355d27"
+        },
+        {
+          "path": "tests/test_reviewer_hardening_adversarial.py",
+          "bytes": 3104,
+          "sha256": "cd70c9ee1788caf84bc9dc0c982122e7c698735554a4d4559db9996008e5fdd4"
+        }
+      ],
+      "gates": {
+        "all_python_parses": true,
+        "no_eval_exec_or_unsafe_deserialization": true,
+        "no_subprocess_shell_true": true,
+        "no_runtime_network_imports": true,
+        "no_environment_absolute_paths": true,
+        "no_todo_or_unimplemented_placeholders": true,
+        "at_least_20_test_methods": true,
+        "all_reproduction_entrypoints_present": true,
+        "all_json_valid": true,
+        "all_json_finite": true,
+        "independent_oracle_modules_present": true
+      },
+      "all_gates_pass": true
+    },
+    "standalone-artifact": {
+      "root": "/mnt/data/reviewer_redteam_work/artifact",
+      "python_files": 20,
+      "python_loc": 2070,
+      "imports": [
+        "__future__",
+        "affine_minimax",
+        "allocation",
+        "argparse",
+        "collections",
+        "copy",
+        "csv",
+        "dataclasses",
+        "exact",
+        "finite_domain_ve",
+        "fractions",
+        "heapq",
+        "itertools",
+        "json",
+        "linear_exact",
+        "oracle",
+        "os",
+        "pathlib",
+        "phase_dp",
+        "phases",
+        "platform",
+        "queue_certificate",
+        "queues",
+        "random",
+        "resource",
+        "reviewer_hardening",
+        "subprocess",
+        "sys",
+        "tempfile",
+        "time",
+        "typing",
+        "unittest"
+      ],
+      "test_methods": [
+        "tests/test_models.py::test_empty",
+        "tests/test_models.py::test_zero_service_ties",
+        "tests/test_models.py::test_heap_staleness",
+        "tests/test_models.py::test_large_calendar_horizon",
+        "tests/test_models.py::test_exact_numerics",
+        "tests/test_models.py::test_invalid_bursts",
+        "tests/test_models.py::test_invalid_calendar_and_release",
+        "tests/test_models.py::test_witness_vector",
+        "tests/test_models.py::test_enumeration_guard",
+        "tests/test_models.py::test_private_caps",
+        "tests/test_models.py::test_boundary_rates",
+        "tests/test_models.py::test_certificate_mutations",
+        "tests/test_models.py::test_json_input_rejection",
+        "tests/test_models.py::test_graph_construction",
+        "tests/test_models.py::test_phase_input_rejection",
+        "tests/test_models.py::test_phase_treewidth_elimination",
+        "tests/test_models.py::test_phase_dp_generic_and_rejection",
+        "tests/test_models.py::test_permutation_invariance",
+        "tests/test_reviewer_hardening.py::test_three_tenant_fractional_certificate",
+        "tests/test_reviewer_hardening.py::test_degenerate_duplicate_pieces",
+        "tests/test_reviewer_hardening.py::test_infeasible_capacity_rejected",
+        "tests/test_reviewer_hardening.py::test_mutated_certificates_rejected",
+        "tests/test_reviewer_hardening.py::test_random_exact_kkt_and_dense_grid_lower_bound",
+        "tests/test_reviewer_hardening.py::test_binary_and_ternary_domains_against_bruteforce",
+        "tests/test_reviewer_hardening.py::test_maxcut_special_case",
+        "tests/test_reviewer_hardening.py::test_bad_witness_rejected",
+        "tests/test_reviewer_hardening_adversarial.py::test_large_denominators_remain_exact",
+        "tests/test_reviewer_hardening_adversarial.py::test_boundary_only_optimum",
+        "tests/test_reviewer_hardening_adversarial.py::test_wrong_bound_multiplier_rejected",
+        "tests/test_reviewer_hardening_adversarial.py::test_disconnected_and_isolated_phase_variables",
+        "tests/test_reviewer_hardening_adversarial.py::test_incomplete_factor_table_rejected",
+        "tests/test_reviewer_hardening_adversarial.py::test_order_validation",
+        "tests/test_reviewer_hardening_adversarial.py::test_negative_factor_scores"
+      ],
+      "test_method_count": 33,
+      "entrypoints": [
+        "reproduce.py",
+        "reproduce_review.py"
+      ],
+      "findings": {
+        "syntax_errors": [],
+        "dangerous_calls": [],
+        "shell_true": [],
+        "network_imports": [],
+        "absolute_paths": [],
+        "placeholders": [],
+        "random_without_literal_seed": []
+      },
+      "invalid_json": [],
+      "nonfinite_json_paths": [],
+      "source_manifest": [
+        {
+          "path": "export_results.py",
+          "bytes": 2704,
+          "sha256": "eda1b8b3bc8b259cea447ef220f7b92d1394b84e0d22d2b32df33860de872318"
+        },
+        {
+          "path": "reproduce.py",
+          "bytes": 6266,
+          "sha256": "e5ba022123be6dba2f77e19c8e2cec8230b8915ffa93ac0d52aa3b732cd30182"
+        },
+        {
+          "path": "reproduce_review.py",
+          "bytes": 696,
+          "sha256": "69beba9f949b99ad990c4b57fac5d18a56a9082d28f90cea0160935758f419bf"
+        },
+        {
+          "path": "reviewer_hardening/__init__.py",
+          "bytes": 702,
+          "sha256": "305e4d1593057935f6c0c2c21996914ba0768a733f556b663a5bba65e23ba312"
+        },
+        {
+          "path": "reviewer_hardening/affine_minimax.py",
+          "bytes": 9445,
+          "sha256": "b10228b9ca0b15fd4e7997852143b1c8db9220b5eda5e5047a52d054f6fb2e40"
+        },
+        {
+          "path": "reviewer_hardening/finite_domain_ve.py",
+          "bytes": 4659,
+          "sha256": "b977f49d7d99f6a22ba5162cf11fd80efad1f0465f6f49f75db0fe35d2536365"
+        },
+        {
+          "path": "reviewer_hardening/linear_exact.py",
+          "bytes": 2091,
+          "sha256": "8b5e54c636a459e89fe98514b1efc1b63ed43a38e01c5c2f2d64de7af37ddd30"
+        },
+        {
+          "path": "reviewer_hardening/run_validation.py",
+          "bytes": 7760,
+          "sha256": "248a291e5cc16a6f84b137eed01c89ba623fde40409dabff74302fefb5e2dea9"
+        },
+        {
+          "path": "src/allocation.py",
+          "bytes": 8967,
+          "sha256": "371ad4136a6a12ea8f493a7627ac19836be1ec077b87950acb82a7f4eab54d43"
+        },
+        {
+          "path": "src/exact.py",
+          "bytes": 529,
+          "sha256": "9d49d7868999ff583910cfc5616a3a284f3ff99d1879ff220b60687c7e216760"
+        },
+        {
+          "path": "src/oracle.py",
+          "bytes": 3413,
+          "sha256": "6cda02a1e247f7c8402473c52653726d6ca50444a400a74f01d3c5c6d7f90c4f"
+        },
+        {
+          "path": "src/phase_dp.py",
+          "bytes": 10292,
+          "sha256": "f0c757043c99e6dba3ae314a23d685fc1c545c43dbd7c1a426d5a6ead4266c54"
+        },
+        {
+          "path": "src/phases.py",
+          "bytes": 2423,
+          "sha256": "553dab42d4b7c6e7e923ad0c6d11cea15aec988926a08ea6bf0482a47ade0ee5"
+        },
+        {
+          "path": "src/queue_certificate.py",
+          "bytes": 3095,
+          "sha256": "0f780c6f7e8d0bf530df295aebc2bc9405f64cb81f4ce16622b025260f142729"
+        },
+        {
+          "path": "src/queues.py",
+          "bytes": 8159,
+          "sha256": "e26903c9730f2b4a0b30e3be3f163e63931825979491b0585bd96360b7409709"
+        },
+        {
+          "path": "src/validate_cases.py",
+          "bytes": 9985,
+          "sha256": "2a8662b856e8a5db020cad47ac3a70f81138ea8c6024344d734884f58dd886ee"
+        },
+        {
+          "path": "tests/run.py",
+          "bytes": 1050,
+          "sha256": "d010d554a49a3fc600e1324f1472653dc709a07d5ccca60667ff22b7662edac3"
+        },
+        {
+          "path": "tests/test_models.py",
+          "bytes": 8809,
+          "sha256": "2a012143ea84c69c50a2de9110e766570a3c176451d8634cedd54e254a64d36e"
+        },
+        {
+          "path": "tests/test_reviewer_hardening.py",
+          "bytes": 5471,
+          "sha256": "63d7fa38b0627fa9f18a791aab9b785310daad317745ad491b376590b0355d27"
+        },
+        {
+          "path": "tests/test_reviewer_hardening_adversarial.py",
+          "bytes": 3104,
+          "sha256": "cd70c9ee1788caf84bc9dc0c982122e7c698735554a4d4559db9996008e5fdd4"
+        }
+      ],
+      "gates": {
+        "all_python_parses": true,
+        "no_eval_exec_or_unsafe_deserialization": true,
+        "no_subprocess_shell_true": true,
+        "no_runtime_network_imports": true,
+        "no_environment_absolute_paths": true,
+        "no_todo_or_unimplemented_placeholders": true,
+        "at_least_20_test_methods": true,
+        "all_reproduction_entrypoints_present": false,
+        "all_json_valid": true,
+        "all_json_finite": true,
+        "independent_oracle_modules_present": false
+      },
+      "all_gates_pass": false
+    }
+  },
+  "cross_package_source_comparison": {
+    "common_scientific_source_files": 39,
+    "mismatched_common_files": [],
+    "status": "PASS"
+  },
+  "all_gates_pass": false
+}

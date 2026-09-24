@@ -1,0 +1,1033 @@
+{
+  "generated_utc": "2026-09-20T15:51:01.199495+00:00",
+  "bib_file": "/mnt/data/reviewer_redteam_work/project/paper/references.bib",
+  "tex_root": "/mnt/data/reviewer_redteam_work/project/paper",
+  "entry_count": 62,
+  "cited_unique_count": 61,
+  "citation_occurrences": 80,
+  "missing_citation_keys": [],
+  "unused_bibliography_keys": [
+    "syncbottleneck"
+  ],
+  "duplicate_dois": {},
+  "validation_counts": {
+    "unverified": 45,
+    "network-failed": 16
+  },
+  "validations": [
+    {
+      "key": "aalo",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "abm",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1145/3544216.3544252"
+    },
+    {
+      "key": "admmcloud",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2017.2658620"
+    },
+    {
+      "key": "arnborg",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "baraat",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "bfc",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "bodlaender",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "chang",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "coflow",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "coflowgeneral",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "conga",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "credence",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "cruz1",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "cruz2",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "d2tcp",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "d3",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "dcqcn",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "dctcp",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1145/1851182.1851192"
+    },
+    {
+      "key": "dcwan",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2023.3245092"
+    },
+    {
+      "key": "dechter",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "expresspass",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "faircoflow",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2024.3446188"
+    },
+    {
+      "key": "fastpass",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "hermes",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "homa",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "hpcc",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "hula",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "hull",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "koller",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "letflow",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "luopan",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2018.2858815"
+    },
+    {
+      "key": "mars",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "maxcut",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1016/0304-3975(76)90059-1"
+    },
+    {
+      "key": "moe",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "ndp",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "nearoptcoflow",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2016.2525767"
+    },
+    {
+      "key": "netcal",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "occamy",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1145/3689031.3717495"
+    },
+    {
+      "key": "parekh1",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "parekh2",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "paydebt",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2022.3202504"
+    },
+    {
+      "key": "pdq",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "pfabric",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "phost",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "pias",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "powertcp",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "ppfc",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2020.2969182"
+    },
+    {
+      "key": "presto",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "reverie",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "robust",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "scaleflux",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2022.3204209"
+    },
+    {
+      "key": "sincronia",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "sird",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "stochasticcoflow",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2026.3690856"
+    },
+    {
+      "key": "swift",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "swing",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2022.3215517"
+    },
+    {
+      "key": "tab",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tnet.2022.3173930"
+    },
+    {
+      "key": "tight",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "timely",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    },
+    {
+      "key": "top",
+      "status": "network-failed",
+      "route": "Crossref DOI registry",
+      "errors": [
+        "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>"
+      ],
+      "warnings": [],
+      "identifier": "10.1109/tpds.2019.2958899"
+    },
+    {
+      "key": "varys",
+      "status": "unverified",
+      "route": null,
+      "errors": [
+        "no DOI, arXiv id, ISBN, or URL"
+      ],
+      "warnings": []
+    }
+  ],
+  "citation_locations": {
+    "aalo": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "abm": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "admmcloud": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "arnborg": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "baraat": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "bfc": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "bodlaender": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "chang": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "coflow": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "coflowgeneral": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "conga": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "credence": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "cruz1": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "cruz2": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "d2tcp": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "d3": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "dcqcn": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "dctcp": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      }
+    ],
+    "dcwan": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "dechter": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "expresspass": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "faircoflow": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "fastpass": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "hermes": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "homa": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "hpcc": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "hula": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "hull": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "koller": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "letflow": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "luopan": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "mars": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "maxcut": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      },
+      {
+        "file": "main.tex",
+        "section": "Unbounded-Width Hardness"
+      }
+    ],
+    "moe": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "ndp": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "nearoptcoflow": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "netcal": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "occamy": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "parekh1": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "parekh2": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "paydebt": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "pdq": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "pfabric": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "phost": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "pias": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "powertcp": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "ppfc": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "presto": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "reverie": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "robust": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "scaleflux": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "sincronia": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "sird": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "stochasticcoflow": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "swift": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "swing": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "tab": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "tight": [
+      {
+        "file": "main.tex",
+        "section": "Deterministic Bounds and Structural Complexity"
+      }
+    ],
+    "timely": [
+      {
+        "file": "main.tex",
+        "section": "Introduction"
+      },
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ],
+    "top": [
+      {
+        "file": "main.tex",
+        "section": "Buffer Management and Proactive Control"
+      }
+    ],
+    "varys": [
+      {
+        "file": "main.tex",
+        "section": "Feedback, Scheduling, and Collective Traffic"
+      }
+    ]
+  },
+  "methodology": {
+    "identity": "DOI entries queried against Crossref; arXiv/URL entries checked for reachability; ISBN checksums validated.",
+    "comparison": "DOI title similarity plus year and first-author sanity checks; warnings are not silently promoted.",
+    "limitations": "Registry reachability and metadata agreement establish bibliographic identity, not correctness or relevance of a paper."
+  }
+}

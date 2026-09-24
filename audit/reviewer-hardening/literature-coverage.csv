@@ -1,0 +1,63 @@
+key,year,title,venue,doi,url,cited,tpds,systems_venue,topical
+dctcp,2010,Data Center {TCP} ({DCTCP}),Proc. ACM SIGCOMM,10.1145/1851182.1851192,,True,False,True,True
+hull,2012,Less Is More: Trading a Little Bandwidth for Ultra-Low Latency in the Data Center,Proc. USENIX NSDI,,,True,False,True,True
+pfabric,2013,{pFabric}: Minimal Near-Optimal Datacenter Transport,Proc. ACM SIGCOMM,,,True,False,True,True
+pdq,2012,Finishing Flows Quickly with Preemptive Scheduling,Proc. ACM SIGCOMM,,,True,False,True,True
+d3,2011,Better Never than Late: Meeting Deadlines in Datacenter Networks,Proc. ACM SIGCOMM,,,True,False,True,True
+d2tcp,2012,Deadline-Aware Datacenter {TCP} ({D2TCP}),Proc. ACM SIGCOMM,,,True,False,True,True
+dcqcn,2015,Congestion Control for Large-Scale {RDMA} Deployments,Proc. ACM SIGCOMM,,,True,False,True,True
+timely,2015,{TIMELY}: {RTT}-Based Congestion Control for the Datacenter,Proc. ACM SIGCOMM,,,True,False,True,True
+hpcc,2019,{HPCC}: High Precision Congestion Control,Proc. ACM SIGCOMM,,,True,False,True,True
+powertcp,2022,{PowerTCP}: Pushing the Performance Limits of Datacenter Networks,Proc. USENIX NSDI,,,True,False,True,True
+swift,2020,Swift: Delay Is Simple and Effective for Congestion Control in the Datacenter,Proc. ACM SIGCOMM,,,True,False,True,True
+homa,2018,Homa: A Receiver-Driven Low-Latency Transport Protocol Using Network Priorities,Proc. ACM SIGCOMM,,,True,False,True,False
+ndp,2017,Re-Architecting Datacenter Networks and Stacks for Low Latency and High Performance,Proc. ACM SIGCOMM,,,True,False,True,True
+expresspass,2017,{ExpressPass}: End-to-End Credit-Based Congestion Control for Datacenters,Proc. ACM SIGCOMM,,,True,False,True,True
+fastpass,2014,Fastpass: A Centralized ``Zero-Queue'' Datacenter Network,Proc. ACM SIGCOMM,,,True,False,True,True
+phost,2015,{pHost}: Distributed Near-Optimal Datacenter Transport over Commodity Network Fabric,Proc. ACM CoNEXT,,,True,False,True,True
+pias,2015,Information-Agnostic Flow Scheduling for Commodity Data Centers,Proc. USENIX NSDI,,,True,False,True,True
+sird,2025,"{SIRD}: A Sender-Informed, Receiver-Driven Datacenter Transport Protocol",Proc. USENIX NSDI,,,True,False,True,True
+bfc,2022,Backpressure Flow Control,Proc. USENIX NSDI,,,True,False,True,True
+conga,2014,{CONGA}: Distributed Congestion-Aware Load Balancing for Datacenters,Proc. ACM SIGCOMM,,,True,False,True,True
+presto,2015,Presto: Edge-Based Load Balancing for Fast Datacenter Networks,Proc. ACM SIGCOMM,,,True,False,True,True
+letflow,2017,Flowlet Load Balancing with LetFlow: A Simple and Efficient Scheme for Data Center Load Balancing,Proc. USENIX NSDI,,,True,False,True,True
+hula,2016,{HULA}: Scalable Load Balancing Using Programmable Data Planes,Proc. ACM SOSR,,,True,False,False,False
+hermes,2017,Resilient Datacenter Load Balancing in the Wild,Proc. ACM SIGCOMM,,,True,False,True,True
+luopan,2019,Luopan: Sampling-Based Load Balancing in Data Center Networks,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2018.2858815,,True,False,False,True
+scaleflux,2022,{ScaleFlux}: Efficient Stateful Scaling in {NFV},IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2022.3204209,,True,False,False,False
+top,2020,Exploring Token-Oriented In-Network Prioritization in Datacenter Networks,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2019.2958899,,True,False,False,True
+ppfc,2020,{P-PFC}: Reducing Tail Latency with Predictive {PFC} in Lossless Data Center Networks,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2020.2969182,,True,False,False,True
+paydebt,2022,PayDebt: Reduce Buffer Occupancy Under Bursty Traffic on Large Clusters,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2022.3202504,,True,False,False,True
+swing,2023,Swing: Providing Long-Range Lossless {RDMA} via {PFC}-Relay,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2022.3215517,,True,False,False,False
+abm,2022,{ABM}: Active Buffer Management in Datacenters,Proc. ACM SIGCOMM,10.1145/3544216.3544252,,True,False,True,True
+occamy,2025,Occamy: A Preemptive Buffer Management for On-Chip Shared-Memory Switches,Proc. ACM EuroSys,10.1145/3689031.3717495,,True,False,True,True
+reverie,2024,Reverie: Low Pass Filter-Based Switch Buffer Sharing for Datacenters with {RDMA} and {TCP} Traffic,Proc. USENIX NSDI,,,True,False,True,True
+credence,2024,Credence: Augmenting Datacenter Switch Buffer Sharing with {ML} Predictions,Proc. USENIX NSDI,,,True,False,True,True
+tab,2022,Traffic-Aware Buffer Management in Shared Memory Switches,IEEE/ACM Trans. Netw.,10.1109/TNET.2022.3173930,,True,False,False,True
+coflow,2012,Coflow: A Networking Abstraction for Cluster Applications,Proc. ACM HotNets,,,True,False,True,True
+varys,2014,Efficient Coflow Scheduling with Varys,Proc. ACM SIGCOMM,,,True,False,True,True
+baraat,2014,Decentralized Task-Aware Scheduling for Data Center Networks,Proc. ACM SIGCOMM,,,True,False,True,True
+aalo,2015,Efficient Coflow Scheduling without Prior Knowledge,Proc. ACM SIGCOMM,,,True,False,True,True
+sincronia,2018,Sincronia: Near-Optimal Network Design for Coflows,Proc. ACM SIGCOMM,,,True,False,True,False
+nearoptcoflow,2016,Towards Practical and Near-Optimal Coflow Scheduling for Data Center Networks,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2016.2525767,,True,False,False,True
+faircoflow,2024,Fair Coflow Scheduling via Controlled Slowdown,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2024.3446188,,True,False,False,True
+stochasticcoflow,2026,Performance Bounds for Priority-Based Stochastic Coflow Scheduling,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2026.3690856,,True,False,False,True
+coflowgeneral,2019,Near Optimal Coflow Scheduling in Networks,Proc. ACM SPAA,,,True,False,False,True
+syncbottleneck,2018,On the Synchronization Bottleneck of {OpenStack Swift}-Like Cloud Storage Systems,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2018.2810179,,False,False,False,False
+dcwan,2023,Large-Scale Measurements and Prediction of {DC-WAN} Traffic,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2023.3245092,,True,False,False,False
+admmcloud,2017,An Alternating Direction Method Approach to Cloud Traffic Management,IEEE Trans. Parallel Distrib. Syst.,10.1109/TPDS.2017.2658620,,True,False,False,False
+netcal,2001,Network Calculus: A Theory of Deterministic Queuing Systems for the Internet,Springer,,,True,False,False,True
+chang,2000,Performance Guarantees in Communication Networks,Springer,,,True,False,False,False
+cruz1,1991,"A Calculus for Network Delay, Part {I}: Network Elements in Isolation",IEEE Trans. Inf. Theory,,,True,False,False,False
+cruz2,1991,"A Calculus for Network Delay, Part {II}: Network Analysis",IEEE Trans. Inf. Theory,,,True,False,False,False
+parekh1,1993,A Generalized Processor Sharing Approach to Flow Control in Integrated Services Networks: The Single-Node Case,IEEE/ACM Trans. Netw.,,,True,False,False,True
+parekh2,1994,A Generalized Processor Sharing Approach to Flow Control in Integrated Services Networks: The Multiple Node Case,IEEE/ACM Trans. Netw.,,,True,False,False,True
+tight,2016,Tight Performance Bounds in the Worst-Case Analysis of Feed-Forward Networks,Discrete Event Dynamic Systems,,,True,False,False,False
+robust,2004,The Price of Robustness,Operations Research,,,True,False,False,False
+dechter,1999,Bucket Elimination: A Unifying Framework for Reasoning,Artificial Intelligence,,,True,False,False,False
+koller,2009,Probabilistic Graphical Models: Principles and Techniques,MIT Press,,,True,False,False,False
+bodlaender,1996,A Linear-Time Algorithm for Finding Tree-Decompositions of Small Treewidth,SIAM J. Comput.,,,True,False,False,False
+arnborg,1987,Complexity of Finding Embeddings in a $k$-Tree,SIAM J. Algebraic Discrete Methods,,,True,False,False,False
+maxcut,1976,Some Simplified {NP}-Complete Graph Problems,Theoretical Computer Science,10.1016/0304-3975(76)90059-1,,True,False,False,False
+moe,2026,Incast-Free {MoE} Rate-Based Scheduling,,,,True,False,False,True
+mars,2022,Mars: Near-Optimal Throughput with Shallow Buffers in Reconfigurable Datacenter Networks,Proc. ACM CoNEXT,,,True,False,True,True

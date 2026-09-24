@@ -1,0 +1,12 @@
+{
+  "test_methods": 18,
+  "failures": 0,
+  "errors": 0,
+  "successful": true,
+  "measurement": {
+    "cpu_seconds": 0.10481440900000005,
+    "wall_seconds": 0.11012639299997318,
+    "peak_rss_kib": 93736,
+    "workers": 1
+  }
+}

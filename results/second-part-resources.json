@@ -1,0 +1,10 @@
+{
+  "part": "second",
+  "parent_cpu_seconds": 0.35989320299999994,
+  "child_cpu_seconds": 24.190436000000002,
+  "wall_seconds": 20.081244882000192,
+  "parent_peak_rss_kib": 98864,
+  "largest_child_peak_rss_kib": 121388,
+  "workers": 1,
+  "scientific_results_match": true
+}
