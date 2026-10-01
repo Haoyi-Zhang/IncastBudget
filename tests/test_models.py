@@ -1,4 +1,4 @@
-import copy,itertools,json,sys,tempfile,unittest
+import copy,itertools,json,subprocess,sys,tempfile,unittest
 from pathlib import Path
 from fractions import Fraction as F
 ROOT=Path(__file__).resolve().parents[1]
@@ -15,11 +15,25 @@ from phase_dp import (robust_phase_peak, induced_width, min_fill_order,
 class QueueTests(unittest.TestCase):
     def test_empty(self):
         for rates in ([F(0)],[F(1),F(2)]):
-            self.assertEqual(shadow_fast([],rates)['pool'],0)
-            self.assertEqual(shadow_reference([],rates)['pool'],0)
+            fast=shadow_fast([],rates); reference=shadow_reference([],rates)
+            self.assertEqual(fast['pool'],0);self.assertEqual(reference['pool'],0)
+            self.assertEqual(fast['private'],[F(0)]*len(rates))
+            self.assertEqual(reference['private'],[F(0)]*len(rates))
         self.assertEqual(cell_shadow_events([],[0],1)['pool'],0)
-        a=optimize_two([],2,[0,0]);self.assertEqual(a['pool'],0)
-        self.assertTrue(verify_two([],2,[0,0],a['certificate']))
+        floors=[F(1,4),F(1,2)]
+        admission=private_admission([], [0,0], floors, 2)
+        self.assertTrue(admission['feasible'])
+        self.assertEqual(admission['rates'],floors)
+        self.assertEqual(admission['private'],[F(0),F(0)])
+        a=optimize_two([],2,floors);self.assertEqual(a['pool'],0)
+        self.assertEqual(a['rates'],[floors[0],F(2)-floors[0]])
+        self.assertEqual(a['certificate']['mode'],'empty')
+        self.assertEqual(a['certificate']['rate0'],str(floors[0]))
+        self.assertEqual(a['certificate']['support'][0]['line']['kind'],'empty-zero-sentinel')
+        self.assertTrue(verify_two([],2,floors,a['certificate']))
+        bad=copy.deepcopy(a['certificate']);bad['certificate_kind']='fabricated'
+        bad['support'][0]['line']['intercept']='1'
+        with self.assertRaises(ValueError):verify_two([],2,floors,bad)
     def test_zero_service_ties(self):
         bs=[Burst(0,0,0,3),Burst(0,0,2,5),Burst(1,2,2,7)]
         a=shadow_fast(bs,[F(0),F(0)])
@@ -30,6 +44,22 @@ class QueueTests(unittest.TestCase):
         for subset in (bs,bs[::2],bs[::-1]):
             a=shadow_fast(subset,rates);b=shadow_reference(subset,rates)
             self.assertEqual(a['pool'],b['pool']);self.assertEqual(a['private'],b['private'])
+        # Sparse-storage regression: n=m, one tenant-specific fixed burst at each
+        # distinct time.  Event storage must grow linearly and streamed rows must
+        # agree numerically without being materialized in memory.
+        for n in (8,32,128):
+            sparse=[Burst(i,2*i,2*i,1) for i in range(n)]
+            seen=[]
+            ref=shadow_reference(sparse,[F(1)]*n,row_sink=lambda row:seen.append(row[0]))
+            fast=shadow_fast(sparse,[F(1)]*n)
+            self.assertEqual((ref['pool'],ref['private'],ref['time']),
+                             (fast['pool'],fast['private'],fast['time']))
+            self.assertEqual(ref['storage']['event_times'],n)
+            self.assertEqual(ref['storage']['sparse_event_entries'],2*n)
+            self.assertEqual(ref['storage']['event_index_entries'],2*n)
+            self.assertEqual(ref['storage']['working_entry_upper_bound'],7*n)
+            self.assertEqual(ref['storage']['materialized_row_payload_entries'],0)
+            self.assertEqual(len(seen),n)
     def test_large_calendar_horizon(self):
         bs=[Burst(0,10**12,10**12+3,2),Burst(1,10**12+1,10**12+5,3)]
         cal=[0,1,1,-1];shift=10**12
@@ -104,6 +134,18 @@ class QueueTests(unittest.TestCase):
             for text in ('{"x":1,"x":2}','{"x":NaN}','{"x":Infinity}'):
                 p.write_text(text)
                 with self.assertRaises(ValueError):load(p)
+            # The public CLI omits dense q/p histories by default and can stream
+            # the same diagnostic rows without retaining them in the summary.
+            summary=Path(tmp)/'summary.json'; rows=Path(tmp)/'rows.jsonl'
+            proc=subprocess.run([sys.executable,str(ROOT/'src/queue_certificate.py'),
+                                 'check',str(ROOT/'inputs/example.json'),
+                                 '--output',str(summary),'--rows-output',str(rows)],
+                                cwd=ROOT,text=True,capture_output=True)
+            self.assertEqual(proc.returncode,0,proc.stderr)
+            payload=json.loads(summary.read_text())
+            self.assertFalse(payload['checker']['rows_materialized'])
+            self.assertEqual(payload['row_stream']['rows'],
+                             len(rows.read_text().splitlines()))
     def test_graph_construction(self):
         ins=graph_instance(3,[(0,1),(1,2)])
         self.assertEqual(len(ins['jobs']),17)

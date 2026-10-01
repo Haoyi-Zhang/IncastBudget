@@ -17,6 +17,9 @@ ROOT = Path(__file__).resolve().parent
 JOBS = [('pilot', None), ('allocation-pilot', None), ('allocation-bounded', None),
         ('controls', None), ('correlation', None)] + [('bounded', k) for k in range(12)]
 SPLIT = 11
+CHILD_CPU_LIMIT_SECONDS = 40
+CHILD_WALL_TIMEOUT_SECONDS = 40
+ADDRESS_SPACE_MIB = 3584
 
 
 def result_name(kind, chunk):
@@ -59,7 +62,7 @@ def main():
     env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', PYTHONHASHSEED='0')
 
     def run(command, quiet=False):
-        subprocess.run(command, check=True, timeout=40, cwd=ROOT, env=env,
+        subprocess.run(command, check=True, timeout=CHILD_WALL_TIMEOUT_SECONDS, cwd=ROOT, env=env,
                        stdout=subprocess.DEVNULL if quiet else None)
 
     selected = JOBS[:SPLIT] if args.part == 'first' else JOBS[SPLIT:] if args.part == 'second' else JOBS
@@ -73,9 +76,11 @@ def main():
         compare_json(out / name, ROOT / 'results' / name)
         print(name, 'matches', flush=True)
 
+    test_contract=None
     if args.part != 'first':
         run([sys.executable, str(ROOT / 'tests/run.py'), '--output', str(out / 'test-summary.json')])
         compare_json(out / 'test-summary.json', ROOT / 'results/test-summary.json')
+        test_contract=json.loads((out / 'test-summary.json').read_text())
         actions = [('check', None, 'example-check'), ('optimize', None, 'example-certificate'),
                    ('verify', out / 'example-certificate.json', 'example-verification')]
         for action, certificate, name in actions:
@@ -104,6 +109,15 @@ def main():
         'parent_peak_rss_kib': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         'largest_child_peak_rss_kib': after.ru_maxrss,
         'workers': 1,
+        'validation_jobs': len(selected),
+        'core_test_methods': 0 if test_contract is None else test_contract['core_test_methods'],
+        'additional_test_methods': 0 if test_contract is None else test_contract['additional_test_methods'],
+        'test_methods': 0 if test_contract is None else test_contract['test_methods'],
+        'certificate_actions': 0 if args.part == 'first' else 3,
+        'derived_files_checked': 0 if args.part == 'first' else 3,
+        'limits': {'child_cpu_seconds': CHILD_CPU_LIMIT_SECONDS,
+                   'child_wall_seconds': CHILD_WALL_TIMEOUT_SECONDS,
+                   'address_space_mib': ADDRESS_SPACE_MIB},
         'scientific_results_match': True,
     }
     name = f'{args.part}-part-resources.json' if args.part else 'resource-use.json'
@@ -121,6 +135,13 @@ def main():
             'parent_peak_rss_kib': max(p['parent_peak_rss_kib'] for p in pieces),
             'largest_child_peak_rss_kib': max(p['largest_child_peak_rss_kib'] for p in pieces),
             'workers': 1,
+            'validation_jobs': sum(p['validation_jobs'] for p in pieces),
+            'core_test_methods': sum(p['core_test_methods'] for p in pieces),
+            'additional_test_methods': sum(p['additional_test_methods'] for p in pieces),
+            'test_methods': sum(p['test_methods'] for p in pieces),
+            'certificate_actions': sum(p['certificate_actions'] for p in pieces),
+            'derived_files_checked': sum(p['derived_files_checked'] for p in pieces),
+            'limits': usage['limits'],
             'scientific_results_match': True,
             'wall_scope': 'sum of active parts; excludes time between invocations',
             'parts': pieces,

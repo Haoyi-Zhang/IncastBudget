@@ -72,10 +72,83 @@
     "fixed_reservation": "3",
     "work_conserving_aggregate": "2"
   },
+  "storage_scaling": {
+    "construction": "n=m, one distinct fixed-time burst per tenant",
+    "all_numerical_matches": true,
+    "rows": [
+      {
+        "n": 8,
+        "m": 8,
+        "event_times": 8,
+        "sparse_event_entries": 16,
+        "state_vector_entries": 24,
+        "event_index_entries": 16,
+        "working_entry_upper_bound": 56,
+        "streamed_rows": 8,
+        "pool": "1"
+      },
+      {
+        "n": 16,
+        "m": 16,
+        "event_times": 16,
+        "sparse_event_entries": 32,
+        "state_vector_entries": 48,
+        "event_index_entries": 32,
+        "working_entry_upper_bound": 112,
+        "streamed_rows": 16,
+        "pool": "1"
+      },
+      {
+        "n": 32,
+        "m": 32,
+        "event_times": 32,
+        "sparse_event_entries": 64,
+        "state_vector_entries": 96,
+        "event_index_entries": 64,
+        "working_entry_upper_bound": 224,
+        "streamed_rows": 32,
+        "pool": "1"
+      },
+      {
+        "n": 64,
+        "m": 64,
+        "event_times": 64,
+        "sparse_event_entries": 128,
+        "state_vector_entries": 192,
+        "event_index_entries": 128,
+        "working_entry_upper_bound": 448,
+        "streamed_rows": 64,
+        "pool": "1"
+      },
+      {
+        "n": 128,
+        "m": 128,
+        "event_times": 128,
+        "sparse_event_entries": 256,
+        "state_vector_entries": 384,
+        "event_index_entries": 256,
+        "working_entry_upper_bound": 896,
+        "streamed_rows": 128,
+        "pool": "1"
+      },
+      {
+        "n": 256,
+        "m": 256,
+        "event_times": 256,
+        "sparse_event_entries": 512,
+        "state_vector_entries": 768,
+        "event_index_entries": 512,
+        "working_entry_upper_bound": 1792,
+        "streamed_rows": 256,
+        "pool": "1"
+      }
+    ],
+    "materialized_row_payload_entries_at_n8": 144
+  },
   "measurement": {
-    "cpu_seconds": 0.14919650799999995,
-    "wall_seconds": 0.1513740959999268,
-    "peak_rss_kib": 94508,
+    "cpu_seconds": 0.4728794139999999,
+    "wall_seconds": 0.4771906599999056,
+    "peak_rss_kib": 94112,
     "workers": 1
   }
 }

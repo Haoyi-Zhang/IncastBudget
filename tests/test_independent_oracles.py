@@ -4,11 +4,11 @@ import unittest
 from fractions import Fraction as F
 from itertools import product
 
-from reviewer_hardening.affine_minimax import (
+from independent_oracles.affine_minimax import (
     AffinePiece, MinimaxCertificate, solve_exact_minimax,
     verify_minimax_certificate,
 )
-from reviewer_hardening.finite_domain_ve import (
+from independent_oracles.finite_domain_ve import (
     Factor, brute_force_max, variable_elimination_max, verify_assignment,
 )
 

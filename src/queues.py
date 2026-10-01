@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from fractions import Fraction as F
 from collections import defaultdict
 import heapq
-from typing import Iterable, Sequence
+from typing import Callable, Iterable, Sequence
 
 @dataclass(frozen=True)
 class Burst:
@@ -52,23 +52,60 @@ def simulate(bursts: Sequence[Burst], rates: Sequence[F], releases: Sequence[int
     return {'pool':peak,'private':peaks,'time':when,'trace':trace}
 
 
-def shadow_reference(bursts: Sequence[Burst], rates: Sequence[F], record: bool = False):
-    """Transparent O(nm) latest-arrival plus pending-mass recurrence."""
-    validate(bursts,rates)
-    n=len(rates); starts=defaultdict(lambda:[0]*n); ends=defaultdict(lambda:[0]*n)
+def _endpoint_events(bursts: Sequence[Burst]):
+    """Coalesce nonzero endpoint masses without allocating n slots per time."""
+    events=defaultdict(lambda:[defaultdict(int),defaultdict(int)])
     for b in bursts:
-        starts[b.lower][b.tenant]+=b.size
-        ends[b.upper][b.tenant]+=b.size
+        events[b.lower][0][b.tenant]+=b.size
+        events[b.upper][1][b.tenant]+=b.size
+    return events
+
+
+def shadow_reference(bursts: Sequence[Burst], rates: Sequence[F], record: bool = False,
+                     row_sink: Callable[[tuple], None] | None = None):
+    """Transparent O(nm) recurrence with sparse events and O(n+m) work space.
+
+    ``record=True`` retains every full q/p row and therefore intentionally uses
+    Theta(nm) output space.  ``row_sink`` emits the same rows one at a time while
+    keeping them out of memory.  The two output modes may be combined, although
+    the command-line interface uses streaming alone for large diagnostics.
+    """
+    validate(bursts,rates)
+    n=len(rates);events=_endpoint_events(bursts)
     q=[F(0)]*n;p=[0]*n;peaks=[F(0)]*n;peak=F(0);when=0;last=0;trace=[]
-    for t in sorted(starts.keys()|ends.keys()):
-        q=[max(F(0),v-r*(t-last))+d for v,r,d in zip(q,rates,ends[t])]
-        p=[v+a-d for v,a,d in zip(p,starts[t],ends[t])]
-        f=[v+a for v,a in zip(q,p)]
-        peaks=[max(a,b) for a,b in zip(peaks,f)]
-        if sum(f)>peak: peak=sum(f);when=t
-        if record: trace.append((t,tuple(q),tuple(p),sum(f)))
+    row_count=0
+    for t,(starts,ends) in sorted(events.items()):
+        total=F(0)
+        for i in range(n):
+            d=ends.get(i,0)
+            q[i]=max(F(0),q[i]-rates[i]*(t-last))+d
+            p[i]+=starts.get(i,0)-d
+            value=q[i]+p[i]
+            if value>peaks[i]:peaks[i]=value
+            total+=value
+        row=(t,tuple(q),tuple(p),total)
+        if record:trace.append(row)
+        if row_sink is not None:row_sink(row)
+        row_count+=1
+        if total>peak:peak=total;when=t
         last=t
-    return {'pool':peak,'private':peaks,'time':when,'trace':trace}
+    sparse_entries=sum(len(starts)+len(ends) for starts,ends in events.values())
+    payload_per_row=2*n+2
+    event_times=len(events)
+    # Abstract entry accounting: three n-vectors, sparse mass entries, event-map
+    # keys, and the sorted event index. Python object/header overhead is not
+    # claimed to be represented by this language-independent count.
+    working_entries=3*n+sparse_entries+2*event_times
+    return {'pool':peak,'private':peaks,'time':when,'trace':trace,
+            'row_count':row_count,
+            'storage':{'event_times':event_times,
+                       'sparse_event_entries':sparse_entries,
+                       'state_vector_entries':3*n,
+                       'event_index_entries':2*event_times,
+                       'working_entry_upper_bound':working_entries,
+                       'entry_accounting':'state vectors + sparse masses + event-map keys + sorted index',
+                       'emitted_row_payload_entries':row_count*payload_per_row if (record or row_sink is not None) else 0,
+                       'materialized_row_payload_entries':len(trace)*payload_per_row}}
 
 
 def shadow_fast(bursts: Sequence[Burst], rates: Sequence[F]):
@@ -78,10 +115,7 @@ def shadow_fast(bursts: Sequence[Burst], rates: Sequence[F]):
     An attaining trace must be separately constructed for its selected time.
     """
     validate(bursts,rates)
-    n=len(rates);events=defaultdict(lambda: [defaultdict(int),defaultdict(int)])
-    for b in bursts:
-        events[b.lower][0][b.tenant]+=b.size
-        events[b.upper][1][b.tenant]+=b.size
+    n=len(rates);events=_endpoint_events(bursts)
     q=[F(0)]*n;last_i=[F(0)]*n;generation=[0]*n;p=[0]*n;active=[False]*n
     total_q=F(0);total_p=0;drain=F(0);clock=F(0);heap=[]
     peak=F(0);when=0;peaks=[F(0)]*n

@@ -12,7 +12,8 @@ def export(results,output):
     output.mkdir(parents=True,exist_ok=True)
     get=lambda name:json.loads((results/(name+'.json')).read_text())
     chunks=[get(f'bounded-{i:02d}') for i in range(12)]
-    a=get('allocation-bounded');p=get('pilot');ap=get('allocation-pilot');g=get('correlation');t=get('test-summary')
+    a=get('allocation-bounded');p=get('pilot');ap=get('allocation-pilot');g=get('correlation');t=get('test-summary');c=get('controls')
+    storage_rows=c['storage_scaling']['rows']
     summary={'bounded_instances':sum(d['instances'] for d in chunks),
              'bounded_fluid_traces':sum(d['fluid_traces'] for d in chunks),
              'bounded_cell_traces':sum(d['cell_traces'] for d in chunks),
@@ -21,7 +22,11 @@ def export(results,output):
              'allocation_traces':a['traces'],'private_cap_checks':a['private_cap_checks'],
              'allocation_pilot_instances':ap['instances'],'allocation_pilot_traces':ap['traces'],
              'graphs':g['graphs'],'phase_assignments':g['phase_assignments'],
-             'test_methods':t['test_methods'],'failures':t['failures'],'errors':t['errors']}
+             'core_test_methods':t['core_test_methods'],
+             'additional_test_methods':t['additional_test_methods'],
+             'test_methods':t['test_methods'],'failures':t['failures'],'errors':t['errors'],
+             'storage_scaling_instances':len(storage_rows),
+             'storage_scaling_max_n':max(row['n'] for row in storage_rows)}
     (output/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
     with (output/'corners.csv').open('w',newline='') as f:
         w=csv.writer(f);w.writerow(['bursts','endpoint_peak','exact_peak'])

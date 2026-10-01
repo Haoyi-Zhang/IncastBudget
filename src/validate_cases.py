@@ -95,10 +95,39 @@ def controls():
     bs=[Burst(0,0,0,2),Burst(0,2,2,2)]
     isolated=shadow_fast(bs,[F(1,2),F(3,2)])['pool']
     aggregate=shadow_fast(bs,[F(2)])['pool'];assert (isolated,aggregate)==(3,2)
+    # Sparse checker-storage audit: n=m, one fixed burst per tenant at a
+    # different time.  The sparse endpoint representation stores two nonzero
+    # endpoint entries per burst rather than two dense n-vectors per time.
+    storage_rows=[];recorded_payload=None
+    for n in (8,16,32,64,128,256):
+        sparse=[Burst(i,2*i,2*i,1) for i in range(n)];rates=[F(1)]*n
+        streamed=[0]
+        def count_row(_row):streamed.__setitem__(0,streamed[0]+1)
+        reference=shadow_reference(sparse,rates,row_sink=count_row)
+        fast=shadow_fast(sparse,rates)
+        assert (reference['pool'],reference['private'],reference['time'])==(fast['pool'],fast['private'],fast['time'])
+        profile=reference['storage']
+        assert profile['event_times']==n and profile['sparse_event_entries']==2*n
+        assert profile['event_index_entries']==2*n
+        assert profile['working_entry_upper_bound']==7*n
+        assert profile['materialized_row_payload_entries']==0 and streamed[0]==n
+        storage_rows.append({'n':n,'m':n,'event_times':profile['event_times'],
+                             'sparse_event_entries':profile['sparse_event_entries'],
+                             'state_vector_entries':profile['state_vector_entries'],
+                             'event_index_entries':profile['event_index_entries'],
+                             'working_entry_upper_bound':profile['working_entry_upper_bound'],
+                             'streamed_rows':streamed[0],'pool':reference['pool']})
+        if n==8:
+            recorded=shadow_reference(sparse,rates,record=True)
+            recorded_payload=recorded['storage']['materialized_row_payload_entries']
+            assert recorded_payload==n*(2*n+2)
     return {'corner_family':rows,'correlation':{'phase_peak':phase,'rectangle_peak':rect},
             'calendar':{'fluid_peak':fluid,'clustered_peak':bursty,'interleaved_peak':interleaved},
             'pooling':{'private_sum':sum(pooled['private']),'pool':pooled['pool']},
-            'scheduler':{'fixed_reservation':isolated,'work_conserving_aggregate':aggregate}}
+            'scheduler':{'fixed_reservation':isolated,'work_conserving_aggregate':aggregate},
+            'storage_scaling':{'construction':'n=m, one distinct fixed-time burst per tenant',
+                               'all_numerical_matches':True,'rows':storage_rows,
+                               'materialized_row_payload_entries_at_n8':recorded_payload}}
 
 def graph_cases(max_vertices=4):
     rows=[]; assignments=0; widths={}

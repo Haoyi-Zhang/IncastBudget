@@ -16,6 +16,15 @@ first: TPDS samples calibrate journal narrative and evidence; influential papers
 calibrate datacenter-systems exposition; adjacent papers pressure-test the
 closest buffer-management boundary.
 
+## Targeted primary-source bibliography check
+
+A separate identity pass on 2026-09-25 checked the formal title and complete
+author list for `expresspass`, `phost`, `presto`, `letflow`, and `sincronia`
+against the supplied author/publisher sources. The exact records are retained in
+`reference-identity.md`; `references.bib` contains no abbreviated `and others`
+author list for these entries. This pass validates citation identity, not the
+project's mathematical claims.
+
 ## Closest technical premises and negative novelty findings
 
 - **DCTCP** supplies the historical reactive ancestor. Its threshold marking,

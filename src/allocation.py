@@ -70,7 +70,12 @@ class Line:
 
 
 def pool_lines(bursts, capacity):
-    """Exact B(x) = max of these lines, r=(x,C-x), for two tenants."""
+    """Exact B(x) lines for nonempty two-tenant traffic.
+
+    Empty traffic is handled by an explicit zero-certificate branch in
+    ``optimize_two`` and ``verify_two``; its serialization sentinel is not a
+    genuine busy-interval cut.
+    """
     capacity = rational(capacity)
     grouped = {}
     for t, i, s, amount in cuts(bursts, 2):
@@ -80,7 +85,9 @@ def pool_lines(bursts, capacity):
         for s0, a0 in arms[0]:
             for s1, a1 in arms[1]:
                 lines.append(Line(F(s0-s1), a0+a1-capacity*(t-s1), t, s0, s1))
-    return lines or [Line(F(0), F(0), 0, 0, 0)]
+    if not lines:
+        raise ArithmeticError('nonempty traffic produced no cut lines')
+    return lines
 
 
 def upper_hull(lines):
@@ -110,6 +117,15 @@ def optimize_two(bursts, capacity, floors):
         raise ValueError('two feasible nonnegative floors required')
     validate(bursts, floors)
     lo, hi = floors[0], capacity-floors[1]
+    if not bursts:
+        x=lo
+        cert={'rate0':str(x),'buffer':'0','mode':'empty',
+              'support':[{'line':{'kind':'empty-zero-sentinel','slope':'0',
+                                  'intercept':'0','time':0,'s0':0,'s1':0},
+                          'weight':'1'}]}
+        verify_two(bursts,capacity,floors,cert)
+        return {'rates':[x,capacity-x],'pool':F(0),'certificate':cert,
+                'candidate_lines':0,'hull_lines':0}
     lines = pool_lines(bursts, capacity)
     hull, starts = upper_hull(lines)
     candidates = {lo, hi} | {x for x in starts if x is not None and lo <= x <= hi}
@@ -153,6 +169,15 @@ def verify_two(bursts, capacity, floors, cert):
     if shadow_reference(bursts, [x, C-x])['pool'] > B:
         raise ValueError('claimed upper bound too small')
     support = cert['support']
+    if not bursts:
+        if B != 0 or cert.get('mode') != 'empty' or len(support) != 1:
+            raise ValueError('empty traffic requires the explicit zero certificate')
+        entry=support[0];record=entry.get('line',{})
+        expected={'kind':'empty-zero-sentinel','slope':'0','intercept':'0',
+                  'time':0,'s0':0,'s1':0}
+        if record != expected or rational(entry.get('weight')) != 1:
+            raise ValueError('invalid empty zero sentinel')
+        return True
     if not 1 <= len(support) <= 2:
         raise ValueError('one or two support lines required')
     sw = F(0); slope = F(0); intercept = F(0)

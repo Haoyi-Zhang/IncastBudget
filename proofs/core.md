@@ -94,7 +94,8 @@ arrivals. Empty inputs yield zero. It DOES require independent admissible releas
 choices and release-oblivious service opportunities.
 
 **Corollary 1 (exact pooled and private capacities).** Let L be the finite set
-of lower endpoints. For nonempty inputs,
+of lower endpoints. If m=0, define B_star=0 and every private peak to be zero
+directly; no maximum over the empty set is used. For nonempty inputs,
 
     B_star(S)=max_{t in L} sum_i F_i(t),
     bcap_i_star(S)=max_{t in L} F_i(t).
@@ -110,7 +111,8 @@ by b_j. When l_j=u_j the pending term never exists, but the upper-trace queue
 gains b_j at that same lower endpoint. Tied updates add. Thus only lower endpoints
 can create a larger envelope. Theorem 1 supplies a jointly attaining trace at
 each maximizer, proving necessity; its coordinatewise bound proves sufficiency.
-Empty inputs are handled separately. QED.
+For m=0 there are no arrivals, so every initially empty queue remains zero;
+this proves the separately defined empty values. QED.
 
 Extra service that dominates a certified clock in every backlogged interval
 preserves the bound but may make it non-minimal. Necessity is NOT claimed over
@@ -126,12 +128,14 @@ q_i=p_i=0 at time zero, the transparent service-clock recurrence is
     q_ik = max(0,q_i,k-1-[S_i(e_k)-S_i(e_k-1)]) + d_ik,
     p_ik = p_i,k-1 + a_ik - d_ik.
 
-All p_ik are nonnegative and q_ik+p_ik is the exact envelope row. If each service
-increment is exactly evaluable, a checker recomputes all rows in O(nm) arithmetic
-operations and O(n+m) working space, or streams a supplied O(nm)-scalar row
-certificate. A violated cap is demonstrated by the explicit clipped release
-vector. That witness proves a lower bound; the recurrence plus Theorem 1 proves
-the upper bound.
+All p_ik are nonnegative and q_ik+p_ik is the exact envelope row. The reference
+implementation stores only nonzero endpoint masses, three n-vectors, and the
+sorted endpoint keys, hence O(n+m) working entries while performing O(nm)
+arithmetic. Retaining every full q/p row is a distinct Theta(nm)-scalar output
+choice; the default result omits it and a diagnostic sink can stream rows one at
+a time. A violated cap is demonstrated by the explicit clipped release vector.
+That witness proves a lower bound; the recurrence plus Theorem 1 proves the
+upper bound.
 
 For the constant-rate specialization S_i(t)=r_i t, a faster producer maintains
 total shadow queue, total pending mass, the total rate of currently nonempty
@@ -166,9 +170,10 @@ arrivals with deadline in [s,t] are queued in the interval, and P_i(t) adds all
 pending eligible arrivals, exactly giving W. There is no need to use a cut at
 a deadline of a not-yet-eligible burst since u_j>=l_j>t.
 
-**Theorem 2 (minimum required rates).** For proposed private cap h_i, require
-W_i(t,t)<=h_i for every lower endpoint t. If any such instantaneous condition
-fails, no finite rate can satisfy the cap. Otherwise set
+**Theorem 2 (minimum required rates).** If m=0 and h_i>=0, define R_i(h_i)=0.
+For nonempty traffic and proposed private cap h_i, require W_i(t,t)<=h_i for
+every lower endpoint t. If any such instantaneous condition fails, no finite
+rate can satisfy the cap. Otherwise set
 
     R_i(h_i)=max(0, max_{t,s<t} (W_i(s,t)-h_i)/(t-s)),
     r_i_min=max(gamma*w_i,R_i(h_i)).
@@ -176,7 +181,9 @@ fails, no finite rate can satisfy the cap. Otherwise set
 Feasible reservations exist iff sum_i r_i_min<=C; assigning these rates is a
 constructive solution (unused capacity may remain unassigned).
 
-Proof. Each cut with s<t is equivalent to r_i >= its displayed quotient.
+Proof. For m=0 there are no queue constraints, so only the floors and aggregate
+capacity remain. For nonempty traffic, each cut with s<t is equivalent to
+r_i >= its displayed quotient.
 Each cut with s=t is independent of the rate and is precisely an instantaneous
 condition. By Corollary 1 these cuts are jointly necessary and sufficient for
 the private cap. Floors add independent lower bounds. Nonnegativity of rates
@@ -186,8 +193,9 @@ quotient-based allocation alone is not asserted as a new scheduling principle.
 
 ## 5. Joint pooled rate design and certificates
 
-For constant reservations, the cut representation from Section 4 gives, for
-any lower endpoint t,
+Assume m>0 in the max-affine and active-cut statements below. For constant
+reservations, the cut representation from Section 4 gives, for any lower
+endpoint t,
 
     F_i(t;r_i)=max_{s in C_i(t)} [W_i(s,t)-r_i*(t-s)],
 
@@ -227,8 +235,8 @@ safety. Extra epigraph slack cannot falsely admit a smaller pool. QED.
     minimize B_star(r)
     subject to r_i>=g_i and sum_i r_i<=C,
 
-and assume the feasible set is nonempty. A feasible r_star with value B_star is
-globally optimal if there are K<=n+1 active valid cut-tuple lines L_k, weights
+and assume m>0 and the feasible set is nonempty. A feasible r_star
+with value B_star is globally optimal if there are K<=n+1 active valid cut-tuple lines L_k, weights
 lambda_k>=0 summing to one, lower-bound multipliers mu_i>=0 and a capacity
 multiplier nu>=0 such that
 
@@ -263,15 +271,15 @@ complementarity, and independently replay the exact envelope at r_star to prove
 the upper bound. The artifact records this general theorem but does not implement
 a general LP solver or a producer for the multipliers.
 
-For two tenants, all capacity can be used: increasing a fixed rate cannot
+For two tenants with m>0, all capacity can be used: increasing a fixed rate cannot
 increase any queue, so an optimum exists with r_0=x and r_1=C-x. The feasible
 interval is [g_0,C-g_1]. For every t and pair of cuts s_0,s_1,
 
     L(x)=(s_0-s_1)*x + W_0(s_0,t)+W_1(s_1,t)-C*(t-s_1).
 
 B_star(x,C-x) is exactly the maximum of these affine functions. Indeed a sum
-of two independent maxima equals the maximum over pairs. Empty inputs give
-the zero line. Constructing the upper hull of the lines and evaluating its
+of two independent maxima equals the maximum over pairs. Constructing the upper
+hull of the lines and evaluating its
 breakpoints in the feasible interval plus the two boundaries gives an exact
 optimum. Every piece is affine, hence an interior minimum occurs at a
 breakpoint or on a flat piece; a flat piece has a boundary candidate. There
@@ -294,10 +302,13 @@ finite upper envelope: at an interior minimum, active slopes bracket zero
 (or an active slope is zero); two such slopes suffice to form zero. At a
 boundary minimum an active slope of the appropriate sign exists. QED.
 
-The implemented two-tenant verifier reconstructs each support line from its two
-workload intervals, checks the rational weights and slope sign, and replays the
-transparent upper-bound recurrence. It does not invoke the optimizer, its hull
-builder, or its candidate-line generator. This is an executable check of an
+For m=0, every feasible allocation has B_star=0. The implementation chooses
+x=g_0 and serializes one unit-weight, time-zero zero sentinel; it is not a
+genuine cut line and Theorems 4--5 do not obtain a convex combination from an
+empty line set. The implemented nonempty two-tenant verifier reconstructs each
+support line from its two workload intervals, checks the rational weights and
+slope sign, and replays the transparent upper-bound recurrence. It does not invoke
+the optimizer, its hull builder, or its candidate-line generator. This is an executable check of an
 instance certificate, not formal verification of the checker itself.
 
 ## 6. Fixed service calendars as a service-clock corollary

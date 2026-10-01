@@ -23,24 +23,27 @@ python3 reproduce.py --part first  --output /tmp/incast-reproduction
 python3 reproduce.py --part second --output /tmp/incast-reproduction
 ```
 
-The second command verifies the retained first part before resuming. Together
-the commands execute 17 serial validation jobs, 18 unit-test methods, the three
-example certificate actions, and figure-data regeneration. Every scientific
-JSON field and every derived CSV must equal the shipped result; only timing and
-RSS measurements are excluded from equality. A mismatch, timeout, or failed
-test exits nonzero.
+The second command verifies the retained first part before resuming. The first
+part runs 11 validation jobs; the second runs the remaining 6, then an explicitly
+partitioned test contract of 18 core methods plus 15 additional exactness and
+adversarial methods (33 total), three example-certificate actions, and three
+derived-file comparisons. Every scientific JSON field and every derived CSV
+must equal the shipped result; only timing and RSS measurements are excluded. A
+count mismatch, import failure, result mismatch, timeout, or failed test exits
+nonzero.
 
 Each validation child has a 40-second CPU limit and a 3,584 MiB address-space
 limit; the parent imposes a 40-second wall limit per child. One worker is used.
-A slower host may time out rather than silently reducing coverage. The most
-recent clean two-part run recorded 50.464184 parent-plus-child CPU seconds and
-121,388 KiB as the largest child peak RSS; these are host-specific feasibility
-measurements, not performance results.
+A slower host may time out rather than silently reducing coverage. The frozen clean-archive two-part run recorded 18.096426 parent-plus-child CPU seconds,
+18.712093 seconds of active wall time, and 40,504 KiB as the largest child peak
+RSS; these are host-specific feasibility measurements, not performance results.
 
 ## Inspect one independent-window certificate
 
 ```sh
 python3 src/queue_certificate.py check inputs/example.json
+python3 src/queue_certificate.py check inputs/example.json \
+  --rows-output /tmp/incast-envelope-rows.jsonl
 python3 src/queue_certificate.py optimize inputs/example.json \
   --output /tmp/incast-certificate.json
 python3 src/queue_certificate.py verify inputs/example.json \
@@ -50,8 +53,10 @@ python3 src/queue_certificate.py verify inputs/example.json \
 The example has exact rates `(1,1)`, minimum pooled occupancy 8, and two active
 support lines `10-2x` and `6+2x`, combined with weights `1/2`. The verifier
 reconstructs the claimed cuts and replays the envelope without invoking the
-optimizer or hull builder. `check` also reports private maxima `(4,5)` and a
-pooled witness at time 4; the private maxima need not occur together.
+optimizer or hull builder. `check` reports private maxima `(4,5)`, a pooled
+witness at time 4, and compact checker/storage metadata. Full `q/p` rows are not
+materialized by default; `--rows-output` streams one JSON record per endpoint.
+The private maxima need not occur together.
 
 Burst tenant, lower endpoint, upper endpoint, and size fields are integers.
 Rates, floors, and capacities accept integers or exact strings such as `1/2`.
@@ -63,9 +68,9 @@ research interface, not a hardened network service.
 
 ## Implemented mechanisms and written theorems
 
-- `src/queues.py`: ordinary trace replay, transparent latest-release recurrence,
-  heap-based constant-rate sweep, clipped witnesses, and fixed equal-cell
-  calendars.
+- `src/queues.py`: ordinary trace replay, a sparse-event transparent recurrence
+  with optional row streaming, a heap-based constant-rate sweep, clipped
+  witnesses, and fixed equal-cell calendars.
 - `src/oracle.py`: exhaustive integer-release oracle and an independently
   organized actual-trace two-tenant allocation oracle.
 - `src/allocation.py`: general-tenant private-cap admission and exact
@@ -102,7 +107,8 @@ independent production workloads.
 | Private-cap combinations | 3,888 | 3,888 decisions |
 | All labeled simple graphs on 1--4 vertices | 75 | 1,098 phase assignments |
 | Width-one path stress case | 1 (64 vertices) | 2,020 factor entries, exact peak 316 |
-| Unit suite | 18 methods | 15 inconsistent certificate mutations rejected |
+| Test contract | 33 methods | 18 core + 15 additional; all pass |
+| Sparse storage family | 6 sizes | `n=m=8,...,256`; exact values agree, `2m` event entries |
 
 The bounded window producer, recurrence, busy-interval formula, integer-release
 oracle, and replayed clipped witness agree. Calendar prefix clocks agree with a
@@ -117,7 +123,9 @@ can understate by factor `m`; marginal independent windows can overstate a
 correlated shift by factor `m`; sums of private peaks can overstate a pool by
 factor `n`; equal average calendar quotas can require different buffers; and a
 fixed reservation is not interchangeable with work-conserving aggregate
-service.
+service. It also retains the separate sparse-storage audit. The reference
+checker uses `O(n+m)` working entries and `O(nm)` arithmetic; choosing to retain
+all full endpoint rows is explicitly a `Theta(nm)` output-space mode.
 
 ## Figure data and evidence traceability
 

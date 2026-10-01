@@ -12,7 +12,11 @@
   "allocation_pilot_traces": 1910,
   "graphs": 75,
   "phase_assignments": 1098,
-  "test_methods": 18,
+  "core_test_methods": 18,
+  "additional_test_methods": 15,
+  "test_methods": 33,
   "failures": 0,
-  "errors": 0
+  "errors": 0,
+  "storage_scaling_instances": 6,
+  "storage_scaling_max_n": 256
 }
