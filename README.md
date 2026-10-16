@@ -1,16 +1,14 @@
 # incast-safe-queue-budget
 
-This standalone repository accompanies the internal manuscript **Exact
+This standalone repository accompanies the manuscript **Exact
 Queue-Budget Certificates for Reserved-Service Incast: Release Windows,
 Correlated Phases, and Tractability**. It contains exact-rational reference
 implementations, bounded independent oracles, written proofs, deterministic
 inputs, tests, raw results, and claim/resource ledgers.
 
-The artifact supports an internal research draft. It is not a claim of
-peer review, switch deployment, transport performance, or external submission
-readiness. General theorems are written mathematical arguments, not
-proof-assistant developments; finite checks validate implementations only on
-the declared domains.
+The general results have written mathematical proofs. Finite checks validate
+the implementations on the declared domains; the evaluated objects are queue
+models rather than deployed switches.
 
 ## Reproduce all shipped scientific results
 
@@ -208,6 +206,11 @@ bundled or modified.
 
 Original code, synthetic data, and proof documentation are covered by `LICENSE`; consulted-resource boundaries are in `licenses/NOTICE.md`.
 ## Vector figure reproduction
+
+The common-interior-release schematic is generated directly by
+`python scripts/draw_windows.py --outdir ../paper/figures`. It requires Matplotlib
+and uses an installed Times New Roman or STIX font with embedded PDF outlines.
+It depicts the six declared windows, without an external TeX process.
 
 The retained data can be rendered with
 `python scripts/plot_figures.py --output /tmp/incast-plots`.
