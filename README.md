@@ -260,3 +260,7 @@ Outputs match byte-for-byte. Segment/transparent median wall ratios are 1.447
 for the pilot, 1.456 for the bounded domain and 0.033 for the 256-tenant sparse
 control. Those repetitions characterize these local inputs, not a transport
 benchmark or additional independent workloads.
+
+## Portable path notation
+
+Published execution records use `<PYTHON_ROOT>`, `<NODE_ROOT>`, `<RUNTIME_ROOT>` and `<PROJECTS_ROOT>` for machine-local installation and workspace prefixes. These are path aliases, not literal directories; substitute the corresponding local roots when replaying a command. Recorded interpreter and dependency versions, inputs, measurements and outcomes are unchanged. File inventories bind the published portable serializations; any `recorded_` identity denotes the pre-normalization bytes.

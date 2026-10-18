@@ -1,5 +1,5 @@
 {
-  "source_module": "D:\\CodexProjects\\wg-check\\substantive-library\\P047\\artifact\\src\\queues.py",
+  "source_module": "<PROJECTS_ROOT>\\wg-check\\substantive-library\\P047\\artifact\\src\\queues.py",
   "optimization": 1,
   "input_origin": "existing results/controls.json storage_scaling.rows; same fixed-time authored construction",
   "measurement_scope": "one replay per existing size; inputs constructed before tracing; Python traced allocations, not process RSS or physical buffer memory",

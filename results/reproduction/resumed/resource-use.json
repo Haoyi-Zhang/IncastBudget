@@ -8,7 +8,7 @@
   "validation_worker_cpu_seconds": 11.40625,
   "environment": {
     "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
-    "executable": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+    "executable": "<PROJECTS_ROOT>\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
     "os": "Windows-11-10.0.28000-SP0",
     "machine": "AMD64",
     "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
@@ -74,7 +74,7 @@
       "validation_worker_cpu_seconds": 6.3125,
       "environment": {
         "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
-        "executable": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "executable": "<PROJECTS_ROOT>\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
         "os": "Windows-11-10.0.28000-SP0",
         "machine": "AMD64",
         "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
@@ -139,7 +139,7 @@
       "validation_worker_cpu_seconds": 5.09375,
       "environment": {
         "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
-        "executable": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+        "executable": "<PROJECTS_ROOT>\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
         "os": "Windows-11-10.0.28000-SP0",
         "machine": "AMD64",
         "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
