@@ -15,8 +15,8 @@ The manuscript uses the keys above in its transport, load-balancing, and coflow 
 ## Compiled consistency check
 
 The clean BibTeX build contains 61 bibliography records and `main.tex` cites all
-61 unique keys (80 citation occurrences). There are no missing or uncited keys,
+61 unique keys (68 citation occurrences). There are no missing or uncited keys,
 duplicate keys, duplicate DOI strings, or placeholder author markers. The
-compiled numbering is `expresspass` [14], `phost` [16], `presto` [21],
+compiled numbering is `expresspass` [5], `phost` [11], `presto` [21],
 `letflow` [22], and `sincronia` [33]. The generated `main.bbl` retains every
 author listed above and the formal titles above.
